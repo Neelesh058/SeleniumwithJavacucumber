@@ -20,5 +20,26 @@ public class LoginPage {
     WebElement password;
 
     @FindBy(xpath="//button[@type='submit']")
-    WebElement loginButton;
+    WebElement LoginBtn;
+
+    @FindBy(linkText = "Logout")
+    WebElement logout;
+
+    public void enteremail(String emailAdd){
+        email.clear();
+        email.sendKeys(emailAdd);
+    }
+    public void enterPassword(String pwd)
+    {
+        password.clear();
+        password.sendKeys(pwd);
+    }
+    public void clickOnLoginButton()
+    {
+        LoginBtn.click();
+    }
+    public void clickOnLogOutButton()
+    {
+        logout.click();
+    }
 }
