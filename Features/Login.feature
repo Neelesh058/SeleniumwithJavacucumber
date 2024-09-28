@@ -9,7 +9,6 @@ Feature: Login
     Then Page Title should be "Dashboard / nopCommerce administration"
     When User click on Log out link
     Then Page Title should be "Your store. Login"
-<<<<<<< HEAD
     And close browser
 
   Scenario: Add New Customer
@@ -30,6 +29,4 @@ Feature: Login
     And Enter customer EMail
     When Click on search button
     Then User should found Email in the Search table
-=======
->>>>>>> parent of 9d1e427 (Fourth commit)
     And close browser
