@@ -10,3 +10,14 @@ Feature: Login
     When User click on Log out link
     Then Page Title should be "Your store. Login"
     And close browser
+
+  Scenario: Add New Customer
+
+    When User click on customers Menu
+    And click on customers Menu Item
+    And click on Add new button
+    Then User can view Add new customer page
+    When User enter customer info
+    And click on Save button
+    Then User can view confirmation message "The new customer has been added successfully."
+    And close browser
