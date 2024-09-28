@@ -21,3 +21,12 @@ Feature: Login
     And click on Save button
     Then User can view confirmation message "The new customer has been added successfully."
     And close browser
+
+  Scenario: Search Customer by Email
+
+    When User click on customers Menu
+    And click on customers Menu Item
+    And Enter customer EMail
+    When Click on search button
+    Then User should found Email in the Search table
+    And close browser
