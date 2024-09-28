@@ -7,8 +7,8 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 
-        features = {"Features/Login.feature"},
-        glue="Steps",
+        features = {".//Features/Login.feature"},
+        glue="stepDefination",
         dryRun = false,
         monochrome = true,
 //        tags = "@Sanity",//scenarios under @sanity tag will be executed

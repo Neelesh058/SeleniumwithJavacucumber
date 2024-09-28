@@ -2,19 +2,25 @@ package stepDefination;
 
 import io.cucumber.java.en.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.jsoup.helper.DataUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chromium.ChromiumDriver;
 import org.testng.Assert;
 import pageObject.LoginPage;
 
+import javax.xml.datatype.Duration;
+import java.util.concurrent.TimeUnit;
+
 public class Steps {
 
 
     public WebDriver driver;
     public LoginPage lp;
+
     @Given("User Launch Chrome browser")
     public void user_launch_chrome_browser() {
+
         WebDriverManager.chromedriver().setup();
         driver=new ChromeDriver();
         lp=new LoginPage(driver);
@@ -23,7 +29,9 @@ public class Steps {
     @When("User opens URL {string}")
     public void user_opens_url(String url) {
 
-   driver.get(url);
+      driver.get(url);
+      driver.manage().window().maximize();
+      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
     @When("User enters Email as {string} and Password as {string}")
     public void user_enters_email_as_and_password_as(String emailAdd, String pwd) {
@@ -54,14 +62,15 @@ public class Steps {
 
     }
     @When("User click on Log out link")
-    public void user_click_on_log_out_link() {
+    public void user_click_on_log_out_link() throws InterruptedException {
         lp.clickOnLogOutButton();
+        Thread.sleep(5000);
 
     }
 
     @Then("close browser")
     public void close_browser() {
-        driver.close();
+//        driver.close();
 
     }
 }
